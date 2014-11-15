@@ -1,0 +1,37 @@
+<%= form_for(@fiestum) do |f| %>
+  <% if @fiestum.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@fiestum.errors.count, "error") %> prohibited this fiestum from being saved:</h2>
+
+      <ul>
+      <% @fiestum.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :id_fiesta %><br>
+    <%= f.number_field :id_fiesta %>
+  </div>
+  <div class="field">
+    <%= f.label :fecha %><br>
+    <%= f.date_select :fecha %>
+  </div>
+  <div class="field">
+    <%= f.label :id_cliente %><br>
+    <%= f.number_field :id_cliente %>
+  </div>
+  <div class="field">
+    <%= f.label :id_empleado %><br>
+    <%= f.number_field :id_empleado %>
+  </div>
+  <div class="field">
+    <%= f.label :id_paquete %><br>
+    <%= f.number_field :id_paquete %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Id fiesta:</strong>
+  <%= @fiestum.id_fiesta %>
+</p>
+
+<p>
+  <strong>Fecha:</strong>
+  <%= @fiestum.fecha %>
+</p>
+
+<p>
+  <strong>Id cliente:</strong>
+  <%= @fiestum.id_cliente %>
+</p>
+
+<p>
+  <strong>Id empleado:</strong>
+  <%= @fiestum.id_empleado %>
+</p>
+
+<p>
+  <strong>Id paquete:</strong>
+  <%= @fiestum.id_paquete %>
+</p>
+
+<%= link_to 'Edit', edit_fiestum_path(@fiestum) %> |
+<%= link_to 'Back', fiesta_path %>

@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Id provedor:</strong>
+  <%= @proveedor.id_provedor %>
+</p>
+
+<p>
+  <strong>Nombre:</strong>
+  <%= @proveedor.Nombre %>
+</p>
+
+<p>
+  <strong>Direccion:</strong>
+  <%= @proveedor.Direccion %>
+</p>
+
+<p>
+  <strong>Telefono:</strong>
+  <%= @proveedor.Telefono %>
+</p>
+
+<p>
+  <strong>Producto:</strong>
+  <%= @proveedor.Producto %>
+</p>
+
+<p>
+  <strong>Id empleado:</strong>
+  <%= @proveedor.id_empleado %>
+</p>
+
+<%= link_to 'Edit', edit_proveedor_path(@proveedor) %> |
+<%= link_to 'Back', proveedors_path %>

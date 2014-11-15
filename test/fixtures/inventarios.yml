@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  id_inventario: 1
+  Producto: MyString
+  Cantidad: 1
+  id_empleado: 1
+
+two:
+  id_inventario: 1
+  Producto: MyString
+  Cantidad: 1
+  id_empleado: 1

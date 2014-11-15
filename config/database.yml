@@ -22,9 +22,20 @@ default: &default
   pool: 5
 
 development:
-  <<: *default
+  adapter: postgresql
+  encoding: unicode
   database: proyecto_base_de_datos_development
+  pool: 5
+  username: marcosven07
+  password: 0000
 
+  test:
+  adapter: postgresql
+  encoding: unicode
+  database: proyecto_base_de_datos_test
+  pool: 5
+  username: marcosven07
+  password: 0000
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
   # When left blank, postgres will use the default role. This is

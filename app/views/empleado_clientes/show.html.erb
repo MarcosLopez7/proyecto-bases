@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Id empleado:</strong>
+  <%= @empleado_cliente.id_empleado %>
+</p>
+
+<p>
+  <strong>Id cliente:</strong>
+  <%= @empleado_cliente.id_cliente %>
+</p>
+
+<p>
+  <strong>Fecha:</strong>
+  <%= @empleado_cliente.fecha %>
+</p>
+
+<p>
+  <strong>Hora:</strong>
+  <%= @empleado_cliente.hora %>
+</p>
+
+<%= link_to 'Edit', edit_empleado_cliente_path(@empleado_cliente) %> |
+<%= link_to 'Back', empleado_clientes_path %>

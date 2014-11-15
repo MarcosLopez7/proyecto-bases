@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  id_fiesta: 1
+  fecha: 2014-11-13
+  id_cliente: 1
+  id_empleado: 1
+  id_paquete: 1
+
+two:
+  id_fiesta: 1
+  fecha: 2014-11-13
+  id_cliente: 1
+  id_empleado: 1
+  id_paquete: 1

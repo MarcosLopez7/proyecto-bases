@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  id_provedor: 1
+  Nombre: MyString
+  Direccion: MyString
+  Telefono: MyString
+  Producto: MyString
+  id_empleado: 1
+
+two:
+  id_provedor: 1
+  Nombre: MyString
+  Direccion: MyString
+  Telefono: MyString
+  Producto: MyString
+  id_empleado: 1

@@ -1,4 +1,20 @@
 Rails.application.routes.draw do
+  resources :empleado_clientes
+
+  resources :proveedor_paquetes
+
+  resources :paquetes
+
+  resources :inventarios
+
+  resources :proveedors
+
+  resources :empleados
+
+  resources :fiesta
+
+  resources :clientes
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

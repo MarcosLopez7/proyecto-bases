@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  id_paquete: 1
+  Numero_paquete: 1
+  Costo: 1
+  Descripcion: MyText
+
+two:
+  id_paquete: 1
+  Numero_paquete: 1
+  Costo: 1
+  Descripcion: MyText
