@@ -1,0 +1,13 @@
+<h1>Bienvenido <%= @nombre%></h1>
+<table>
+	<tr>
+		<th><%= link_to 'Iniciar sesión con cliente', welcome_cliente_path%></th>
+		<th><%= link_to 'Perfil del empleado', @empleado%></th>
+		<% if(@puesto == "Administrador")%>
+			<th><%= link_to 'Agregar empleado', new_empleado_path%></th>
+			<th><%= link_to 'Agregar proveedor', new_proveedor_path %></th>
+			<th><%= link_to 'Agregar paquete', new_paquete_path%></th>
+		<% end %>
+	</tr>
+
+</table>

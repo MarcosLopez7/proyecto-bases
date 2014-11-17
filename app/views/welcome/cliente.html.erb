@@ -1,0 +1,8 @@
+<h1>CLIENTES</h1>
+<% arreglo_clientes = [] %>
+<% @clientes.each do |cliente| %>
+ <% arreglo_clientes<<[cliente.Nombre, cliente.id_cliente] %>
+<% end %>
+<div><%= select_tag "Clientes", options_for_select(arreglo_clientes, 2) %></div>
+<div><%= link_to 'Agregar cliente', new_cliente_path %></div>
+<div><%= link_to 'Ver sesiones anteriores', empleado_clientes_path %></div>
