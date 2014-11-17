@@ -24,8 +24,19 @@ class ClientesController < ApplicationController
   # POST /clientes
   # POST /clientes.json
   def create
-    @cliente = Cliente.new(cliente_params)
+      @i = 1
+      @clientes = Cliente.all
+      @clientes.each do |cliente|
 
+     if @i == cliente.id_cliente 
+       @i = @i + 1 
+    else
+       break 
+    end 
+
+   end 
+    @cliente = Cliente.new(cliente_params)
+    @cliente.id_cliente = @i
     respond_to do |format|
       if @cliente.save
         format.html { redirect_to @cliente, notice: 'Cliente was successfully created.' }

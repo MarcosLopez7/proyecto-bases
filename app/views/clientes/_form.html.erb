@@ -11,10 +11,8 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :id_cliente %><br>
-    <%= f.number_field :id_cliente %>
-  </div>
+
+  
   <div class="field">
     <%= f.label :Nombre %><br>
     <%= f.text_field :Nombre %>
@@ -25,11 +23,11 @@
   </div>
   <div class="field">
     <%= f.label :Telefono %><br>
-    <%= f.text_field :Telefono %>
+    <%= f.telephone_field :Telefono %>
   </div>
   <div class="field">
     <%= f.label :email %><br>
-    <%= f.text_field :email %>
+    <%= f.email_field :email %>
   </div>
   <div class="actions">
     <%= f.submit %>

@@ -1,13 +1,9 @@
 <h1>Listing clientes</h1>
-
+<% arreglo_clientes = [] %>
 <table>
   <thead>
     <tr>
-      <th>Id cliente</th>
       <th>Nombre</th>
-      <th>Direccion</th>
-      <th>Telefono</th>
-      <th>Email</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -15,19 +11,20 @@
   <tbody>
     <% @clientes.each do |cliente| %>
       <tr>
-        <td><%= cliente.id_cliente %></td>
         <td><%= cliente.Nombre %></td>
-        <td><%= cliente.Direccion %></td>
-        <td><%= cliente.Telefono %></td>
-        <td><%= cliente.email %></td>
         <td><%= link_to 'Show', cliente %></td>
         <td><%= link_to 'Edit', edit_cliente_path(cliente) %></td>
         <td><%= link_to 'Destroy', cliente, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% arreglo_clientes<<[cliente.Nombre, cliente.id_cliente] %>
       </tr>
+      
     <% end %>
+    <tr>
+      <td><%= select_tag "Clientes", options_for_select(arreglo_clientes, 2) %></td>
+    </tr>
   </tbody>
 </table>
 
 <br>
 
-<%= link_to 'New Cliente', new_cliente_path %>
+<%= link_to 'Agregar cliente', new_cliente_path %>
