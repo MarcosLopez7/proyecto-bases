@@ -1,4 +1,4 @@
-<h1>Lista de empleados</h1>
+<h1>Listing empleados</h1>
 
 <table>
   <thead>
@@ -20,9 +20,9 @@
         <td><%= empleado.Direccion %></td>
         <td><%= empleado.Telefono %></td>
         <td><%= empleado.Puesto %></td>
-        <td><%= link_to 'Ver', empleado %></td>
-        <td><%= link_to 'Editar', edit_empleado_path(empleado) %></td>
-        <td><%= link_to 'Eliminar', empleado, method: :delete, data: { confirm: 'Seguro que desea elimiar?' } %></td>
+        <td><%= link_to 'Show', empleado %></td>
+        <td><%= link_to 'Edit', edit_empleado_path(empleado) %></td>
+        <td><%= link_to 'Destroy', empleado, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

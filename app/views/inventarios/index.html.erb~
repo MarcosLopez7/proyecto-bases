@@ -1,4 +1,4 @@
-<h1>Inventario</h1>
+<h1>Listing inventarios</h1>
 
 <table>
   <thead>
@@ -18,9 +18,9 @@
         <td><%= inventario.Producto %></td>
         <td><%= inventario.Cantidad %></td>
         <td><%= inventario.id_empleado %></td>
-        <td><%= link_to 'Ver', inventario %></td>
-        <td><%= link_to 'Editar', edit_inventario_path(inventario) %></td>
-        <td><%= link_to 'Eliminar', inventario, method: :delete, data: { confirm: 'Estas seguro que desea Eliminar?' } %></td>
+        <td><%= link_to 'Show', inventario %></td>
+        <td><%= link_to 'Edit', edit_inventario_path(inventario) %></td>
+        <td><%= link_to 'Destroy', inventario, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

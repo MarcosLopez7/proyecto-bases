@@ -1,4 +1,4 @@
-<h1>Lista de fiestas</h1>
+<h1>Listing fiesta</h1>
 
 <table>
   <thead>
@@ -20,9 +20,9 @@
         <td><%= fiestum.id_cliente %></td>
         <td><%= fiestum.id_empleado %></td>
         <td><%= fiestum.id_paquete %></td>
-        <td><%= link_to 'Ver', fiestum %></td>
-        <td><%= link_to 'Editar', edit_fiestum_path(fiestum) %></td>
-        <td><%= link_to 'Eliminar', fiestum, method: :delete, data: { confirm: 'Estas seguro que desea elimiar?' } %></td>
+        <td><%= link_to 'Show', fiestum %></td>
+        <td><%= link_to 'Edit', edit_fiestum_path(fiestum) %></td>
+        <td><%= link_to 'Destroy', fiestum, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
