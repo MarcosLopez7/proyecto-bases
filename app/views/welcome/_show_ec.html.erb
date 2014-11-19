@@ -1,5 +1,3 @@
-<h1>Hora del Registro del empleado</h1>
-
 <table>
   <thead>
     <tr>
@@ -14,18 +12,8 @@
   <tbody>
     <% @empleado_clientes.each do |empleado_cliente| %>
       <tr>
-        <td>
-        <% emple = Empleado.joins('INNER JOIN empleado_clientes ON empleados.id_empleado = empleado_clientes.id_empleado').where('id_empleado' => empleado_cliente.id_empleado) %>
-          <%emple.each do |name|%>
-          <%= name.Nombre%>
-          <%end%>
-          </td>
-        <td>
-          <% cli = Cliente.joins('INNER JOIN empleado_clientes ON clientes.id_cliente = empleado_clientes.id_cliente').where('id_cliente' => empleado_cliente.id_cliente) %>
-          <%cli.each do |name|%>
-          <%= name.Nombre%>
-          <%end%>
-        </td>
+        <td><%= empleado_cliente.id_empleado %></td>
+        <td><%= empleado_cliente.id_cliente %></td>
         <td><%= empleado_cliente.fecha %></td>
         <td><%= empleado_cliente.hora %></td>
         <td><%= link_to 'Ver', empleado_cliente %></td>
@@ -35,7 +23,3 @@
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%=link_to 'regresar', welcome_cliente_path %>

@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   get 'welcome/index'
   get 'welcome/cliente'
+  post 'welcome/cliente'
 
   resources :empleado_clientes
 
@@ -72,4 +73,5 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
+  #match ':controller(/:action(/:id))(.:format)'
 end

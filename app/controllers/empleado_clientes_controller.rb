@@ -5,6 +5,8 @@ class EmpleadoClientesController < ApplicationController
   # GET /empleado_clientes.json
   def index
     @empleado_clientes = EmpleadoCliente.all
+    @empleados = Empleado.all
+    @clientes = Cliente.all
   end
 
   # GET /empleado_clientes/1

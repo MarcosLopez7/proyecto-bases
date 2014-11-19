@@ -7,7 +7,19 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
+<nav class='navbar'>
+	<div class='navbar-inner'>
+		<ul class='nav'>
+			<li><%= link_to 'Inicio', welcome_index_path%></li>
+			<li><%= link_to 'Registro de cliente', welcome_cliente_path%></li>
+			<li><%= link_to 'Perfil del empleado', @empleado%></li>
+				<li><%= link_to 'Agregar empleado', new_empleado_path%></li>
+				<li><%= link_to 'Agregar proveedor', new_proveedor_path %></li>
+				<li><%= link_to 'Agregar paquete', new_paquete_path%></li>
+	
+		</ul>
+	</div>
+</nav>
 <%= yield %>
 
 </body>

@@ -1,8 +1,46 @@
 <h1>CLIENTES</h1>
 <% arreglo_clientes = [] %>
-<% @clientes.each do |cliente| %>
- <% arreglo_clientes<<[cliente.Nombre, cliente.id_cliente] %>
+<% @clientesNombre.each do |cliente| %>
+ <% arreglo_clientes<<cliente.Nombre %>
 <% end %>
-<div><%= select_tag "Clientes", options_for_select(arreglo_clientes, 2) %></div>
+<%= form_tag :action => 'cliente' do%>
+<div>
+<%= select_tag 'Clientes', options_for_select(arreglo_clientes, 1) %>
+<%= submit_tag 'Ver cliente'%>
+</div>
+
+<% @clientes.each do |cliente|%>
+<p>
+  <strong>Id:</strong>
+  <%= cliente.id_cliente %>
+</p>
+
+<p>
+  <strong>Nombre:</strong>
+  <%= cliente.Nombre %>
+</p>
+
+<p>
+  <strong>Direccion:</strong>
+  <%= cliente.Direccion %>
+</p>
+
+<p>
+  <strong>Telefono:</strong>
+  <%= cliente.Telefono %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= cliente.email %>
+</p>
+<%end%>
+
+
 <div><%= link_to 'Agregar cliente', new_cliente_path %></div>
-<div><%= link_to 'Ver sesiones anteriores', empleado_clientes_path %></div>
+<div><%= link_to 'Ver registros anteriores', empleado_clientes_path%></div>
+
+<% @clientes.each do |cliente|%>
+	<div><%= submit_tag "registrar"%></div>
+<%end%>
+<% end %>
