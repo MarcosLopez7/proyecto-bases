@@ -1,13 +1,8 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Id paquete:</strong>
-  <%= @paquete.id_paquete %>
-</p>
-
-<p>
   <strong>Numero paquete:</strong>
-  <%= @paquete.Numero_paquete %>
+  <%= @paquete.id_paquete %>
 </p>
 
 <p>
@@ -20,5 +15,5 @@
   <%= @paquete.Descripcion %>
 </p>
 
-<%= link_to 'Edit', edit_paquete_path(@paquete) %> |
-<%= link_to 'Back', paquetes_path %>
+<%= link_to 'Editar', edit_paquete_path(@paquete) %> |
+<%= link_to 'Regresar', paquetes_path %>

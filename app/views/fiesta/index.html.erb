@@ -3,11 +3,10 @@
 <table>
   <thead>
     <tr>
-      <th>Id fiesta</th>
+      <th>Id</th>
       <th>Fecha</th>
-      <th>Id cliente</th>
-      <th>Id empleado</th>
-      <th>Id paquete</th>
+      <th>Nombre Cliente</th>
+      <th>Numero de paquete</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -17,8 +16,7 @@
       <tr>
         <td><%= fiestum.id_fiesta %></td>
         <td><%= fiestum.fecha %></td>
-        <td><%= fiestum.id_cliente %></td>
-        <td><%= fiestum.id_empleado %></td>
+        <td><%= Cliente.where('id_cliente' => fiestum.id_cliente)[0].Nombre %></td>
         <td><%= fiestum.id_paquete %></td>
         <td><%= link_to 'Ver', fiestum %></td>
         <td><%= link_to 'Editar', edit_fiestum_path(fiestum) %></td>

@@ -3,23 +3,132 @@
 <head>
   <title>Sistema de fiesta</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag "jquery-1.11.0.min", "rails", "highcharts" %>
   <%= csrf_meta_tags %>
+  <style type="text/css">
+  body,td,th {
+color: #1D01FF;
+}
+body {
+background-color: #EFE896;
+}
+.panel-body{
+	background-color: black;
+	height: 50%;
+	padding-top: 5px;
+	padding-bottom: 0px;
+
+}
+</style>
+
 </head>
 <body>
-<nav class='navbar'>
-	<div class='navbar-inner'>
-		<ul class='nav'>
-			<li><%= link_to 'Inicio', welcome_index_path%></li>
-			<li><%= link_to 'Registro de cliente', welcome_cliente_path%></li>
-			<li><%= link_to 'Perfil del empleado', @empleado%></li>
-				<li><%= link_to 'Agregar empleado', new_empleado_path%></li>
-				<li><%= link_to 'Agregar proveedor', new_proveedor_path %></li>
-				<li><%= link_to 'Agregar paquete', new_paquete_path%></li>
-	
+<nav class ="navbar">
+	<div class="navbar-inner">
+		<ul class="nav">
+		<ul class="nav nav-pills">
+	<ul class="nav nav-pills nav-justified">
+	<div class="col-md-14">
+	<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">Salón Marynolo</h3>
+  </div>
+
+<%if current_user %>
+   	<div class="panel-body">
+    	<div class="col-md-1">
+		<div class="thumbnail tile tile-small tile-wisteria">
+			<a href="#" >
+				<li class="active"><%= link_to 'Inicio', welcome_index_path%></li>
+			</a>
+		</div>
+	</div>
+  	<div class="panel-body">
+    	<div class="col-md-1">
+		<div class="thumbnail tile tile-small tile-red">
+			<a href="#" >
+				<li class="active"><%= link_to 'Registrar cliente', welcome_cliente_path%></li>
+			</a>
+		</div>
+	</div>
+  
+   <div class="col-md-1">
+		<div class="thumbnail tile tile-small tile-yellow">
+			<a href="#" >
+				<li class="active"><%= link_to 'Perfil del empleado', Empleado.joins('INNER JOIN users ON users.email = empleados.email').where('empleados.email' => current_user.email)[0]%></li>
+			</a>
+		</div>
+	</div>
+
+  <% if Empleado.joins('INNER JOIN users ON users.email = empleados.email').where('empleados.email' => current_user.email)[0].Puesto == "Administrador"%>
+  	<div class="col-md-1">
+		<div class="thumbnail tile tile-small tile-silver">
+			<a href="#" >
+				<li class="active"><%= link_to 'Ver empleados', empleados_path%></li>
+			</a>
+		</div>
+	</div>
+<% end %>
+  
+  	<div class="col-md-1">
+		<div class="thumbnail tile tile-small tile-magent">
+			<a href="#" >
+				<li class="active"><%= link_to 'Ver proveedores', proveedors_path %></li>
+			</a>
+		</div>
+	</div>
+
+  	<div class="col-md-1">
+		<div class="thumbnail tile tile-small tile-orange">
+			<a href="#" >
+				<li class="active"><%= link_to 'Ver paquetes', paquetes_path%></li>
+			</a>
+		</div>
+	</div>
+
+  	<div class="col-md-1">
+		<div class="thumbnail tile tile-small tile-clouds">
+			<a href="#" >
+				<li class="active"><%= link_to 'Ver inventarios', inventarios_path%></li>
+			</a>
+		</div>
+	</div>
+
+	<div class="col-md-1">
+		<div class="thumbnail tile tile-small tile-blue">
+			<a href="#" >
+				<li class="active"><%= link_to 'Log out', :logout, method: :post %></li>
+			</a>
+		</div>
+	</div>
+<% else %>
+
+	<div class="col-md-1">
+		<div class="thumbnail tile tile-small tile-pink">
+			<a href="#" >
+				<li class="#"><%= link_to 'Log in', :login %></li>
+			</a>
+		</div>
+	</div>
+
+<% end %>
+
+  </div>
+</div>
+</div>
+
+               </ul>
+			</ul>	
 		</ul>
 	</div>
 </nav>
+	<a href="#" >
+			<img src="http://4.bp.blogspot.com/_1ldPbFfbE9A/S8JFu7fEioI/AAAAAAAAAAk/YwxnDuykygM/S1600-R/ESTACION+ESPACIAL+LOGO2.jpg" width="800" height="200" align="center">
+			<img src="http://mundodeilusiones.mex.tl/imagesnew2/0/0/0/0/2/0/9/4/4/1/globos3.gif" width="426" height="467" align="right">
+		</a>
+
+  
+
 <%= yield %>
 
 </body>

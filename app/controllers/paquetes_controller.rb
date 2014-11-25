@@ -24,8 +24,9 @@ class PaquetesController < ApplicationController
   # POST /paquetes
   # POST /paquetes.json
   def create
+    
     @paquete = Paquete.new(paquete_params)
-
+    @paquete.Costo = 0
     respond_to do |format|
       if @paquete.save
         format.html { redirect_to @paquete, notice: 'Paquete was successfully created.' }
@@ -54,6 +55,17 @@ class PaquetesController < ApplicationController
   # DELETE /paquetes/1
   # DELETE /paquetes/1.json
   def destroy
+    @pi = PaqueteInventario.where('id_paquete' => @paquete.id_paquete)
+    @pp = ProveedorPaquete.where('id_paquete' => @paquete.id_paquete)
+
+    @pi.each do |pi|
+      pi.destroy
+    end
+
+    @pp.each do |pp|
+      pp.destroy
+    end
+
     @paquete.destroy
     respond_to do |format|
       format.html { redirect_to paquetes_url, notice: 'Paquete was successfully destroyed.' }
@@ -69,6 +81,6 @@ class PaquetesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def paquete_params
-      params.require(:paquete).permit(:id_paquete, :Numero_paquete, :Costo, :Descripcion)
+      params.require(:paquete).permit(:id_paquete, :Costo, :Descripcion)
     end
 end

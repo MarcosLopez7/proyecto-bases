@@ -1,7 +1,14 @@
 Rails.application.routes.draw do
+  resources :paquete_inventarios
+
+  get 'sessions/new'
+
+  resources :users
+
   get 'welcome/index'
   get 'welcome/cliente'
   post 'welcome/cliente'
+  get 'welcome/salida'
 
   resources :empleado_clientes
 
@@ -19,11 +26,15 @@ Rails.application.routes.draw do
 
   resources :clientes
 
+  resources :sessions
+  get 'login', to: 'sessions#new', as: :login
+  post 'logout', to: 'sessions#destroy', as: :logout
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-   root 'welcome#index'
+   root 'welcome#salida'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

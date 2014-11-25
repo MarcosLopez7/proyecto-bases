@@ -5,8 +5,7 @@
     <tr>
       <th>Nombre del empleado</th>
       <th>Nombre del cliente</th>
-      <th>Fecha</th>
-      <th>Hora</th>
+      <th>Fecha y hora</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -14,22 +13,20 @@
   <tbody>
     <% @empleado_clientes.each do |empleado_cliente| %>
       <tr>
+        <%@nombre_empleado = Empleado.joins('INNER JOIN empleado_clientes ON empleados.id_empleado = empleado_clientes.id_empleado').where('id_empleado' => empleado_cliente.id_empleado)[0].Nombre %>
         <td>
-        <% emple = Empleado.joins('INNER JOIN empleado_clientes ON empleados.id_empleado = empleado_clientes.id_empleado').where('id_empleado' => empleado_cliente.id_empleado) %>
-          <%emple.each do |name|%>
-          <%= name.Nombre%>
-          <%end%>
-          </td>
-        <td>
-          <% cli = Cliente.joins('INNER JOIN empleado_clientes ON clientes.id_cliente = empleado_clientes.id_cliente').where('id_cliente' => empleado_cliente.id_cliente) %>
-          <%cli.each do |name|%>
-          <%= name.Nombre%>
+          <%if @nombre_empleado != nil%>
+            <%= @nombre_empleado%>
+          <%else%>
+            <%= "Empleado retirado" %>
           <%end%>
         </td>
-        <td><%= empleado_cliente.fecha %></td>
-        <td><%= empleado_cliente.hora %></td>
+        <td>
+          <%= Cliente.joins('INNER JOIN empleado_clientes ON clientes.id_cliente = empleado_clientes.id_cliente').where('id_cliente' => empleado_cliente.id_cliente)[0].Nombre %>
+         
+        </td>
+        <td><%= empleado_cliente.created_at %></td>
         <td><%= link_to 'Ver', empleado_cliente %></td>
-        <td><%= link_to 'Editar', edit_empleado_cliente_path(empleado_cliente) %></td>
         <td><%= link_to 'Eliminar', empleado_cliente, method: :delete, data: { confirm: 'Estas seguro que quieres eliminar?' } %></td>
       </tr>
     <% end %>

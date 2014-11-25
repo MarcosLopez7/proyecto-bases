@@ -24,8 +24,10 @@ class EmpleadosController < ApplicationController
   # POST /empleados
   # POST /empleados.json
   def create
+   
     @empleado = Empleado.new(empleado_params)
-
+    @empleado.id_empleado = Empleado.last.id + 1
+    @empleado.email = User.last.email;
     respond_to do |format|
       if @empleado.save
         format.html { redirect_to @empleado, notice: 'Empleado was successfully created.' }
@@ -54,6 +56,8 @@ class EmpleadosController < ApplicationController
   # DELETE /empleados/1
   # DELETE /empleados/1.json
   def destroy
+    @user = User.where('email' => @empleado.email)[0]
+    @user.destroy
     @empleado.destroy
     respond_to do |format|
       format.html { redirect_to empleados_url, notice: 'Empleado was successfully destroyed.' }
@@ -69,6 +73,6 @@ class EmpleadosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def empleado_params
-      params.require(:empleado).permit(:id_empleado, :Nombre, :Direccion, :Telefono, :Puesto)
+      params.require(:empleado).permit(:id_empleado, :Nombre, :Direccion, :Telefono, :Puesto, :email)
     end
 end

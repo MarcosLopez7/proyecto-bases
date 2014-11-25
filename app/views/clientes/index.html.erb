@@ -14,7 +14,6 @@
         <td><%= cliente.Nombre %></td>
         <td><%= link_to 'Ver', cliente %></td>
         <td><%= link_to 'Editar', edit_cliente_path(cliente) %></td>
-        <td><%= link_to 'Eliminar', cliente, method: :delete, data: { confirm: 'Estas seguro que desea elimiar?' } %></td>
         <% arreglo_clientes<<[cliente.Nombre, cliente.id_cliente] %>
       </tr>
       

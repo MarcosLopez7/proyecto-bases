@@ -1,7 +1,7 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Id empleado:</strong>
+  <strong>Id :</strong>
   <%= @empleado.id_empleado %>
 </p>
 
@@ -25,5 +25,10 @@
   <%= @empleado.Puesto %>
 </p>
 
-<%= link_to 'Edit', edit_empleado_path(@empleado) %> |
-<%= link_to 'Back', empleados_path %>
+<p>
+  <strong>Email:</strong>
+  <%= @empleado.email %>
+</p>
+
+<%= link_to 'Editar', edit_empleado_path(@empleado) %> |
+<%= link_to 'regresar', empleados_path %>

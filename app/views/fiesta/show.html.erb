@@ -11,19 +11,14 @@
 </p>
 
 <p>
-  <strong>Id cliente:</strong>
-  <%= @fiestum.id_cliente %>
+  <strong>Nombre cliente:</strong>
+  <%= Cliente.where('id_cliente' => @fiestum.id_cliente)[0].Nombre %>
 </p>
 
 <p>
-  <strong>Id empleado:</strong>
-  <%= @fiestum.id_empleado %>
-</p>
-
-<p>
-  <strong>Id paquete:</strong>
+  <strong>Numero de paquete:</strong>
   <%= @fiestum.id_paquete %>
 </p>
 
-<%= link_to 'Edit', edit_fiestum_path(@fiestum) %> |
-<%= link_to 'Back', fiesta_path %>
+<%= link_to 'Editar', edit_fiestum_path(@fiestum) %> |
+<%= link_to 'regresar', fiesta_path %>

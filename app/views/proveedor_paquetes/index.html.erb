@@ -1,4 +1,4 @@
-<h1>Listing proveedor_paquetes</h1>
+<h1>Lista de paquetes del Proveeedor</h1>
 
 <table>
   <thead>
@@ -14,9 +14,9 @@
       <tr>
         <td><%= proveedor_paquete.id_provedor %></td>
         <td><%= proveedor_paquete.id_paquete %></td>
-        <td><%= link_to 'Show', proveedor_paquete %></td>
-        <td><%= link_to 'Edit', edit_proveedor_paquete_path(proveedor_paquete) %></td>
-        <td><%= link_to 'Destroy', proveedor_paquete, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Ver', proveedor_paquete %></td>
+        <td><%= link_to 'Editar', edit_proveedor_paquete_path(proveedor_paquete) %></td>
+        <td><%= link_to 'Elimiar', proveedor_paquete, method: :delete, data: { confirm: 'Estas seguro que quieres Elimiar?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -24,4 +24,4 @@
 
 <br>
 
-<%= link_to 'New Proveedor paquete', new_proveedor_paquete_path %>
+<%= link_to 'Nuevo paquete del proveedor', new_proveedor_paquete_path %>

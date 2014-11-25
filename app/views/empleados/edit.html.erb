@@ -1,6 +1,7 @@
-<h1>Editing empleado</h1>
+<h1>Editar empleado</h1>
 
 <%= render 'form' %>
 
-<%= link_to 'Show', @empleado %> |
-<%= link_to 'Back', empleados_path %>
+<%= link_to 'Ver', @empleado %> |
+<%= link_to 'Regresar', empleados_path %>
+<%= link_to 'Cambiar contraseña', edit_user_path(User.where('email' => @empleado.email)[0])%>

@@ -11,18 +11,12 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :id_paquete %><br>
-    <%= f.number_field :id_paquete %>
-  </div>
+  <%if @paquete != nil%>
   <div class="field">
     <%= f.label :Numero_paquete %><br>
-    <%= f.number_field :Numero_paquete %>
+    <%= f.number_field :id_paquete %>
   </div>
-  <div class="field">
-    <%= f.label :Costo %><br>
-    <%= f.number_field :Costo %>
-  </div>
+  <%end%>
   <div class="field">
     <%= f.label :Descripcion %><br>
     <%= f.text_area :Descripcion %>

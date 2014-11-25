@@ -6,7 +6,7 @@
       <th>Id inventario</th>
       <th>Producto</th>
       <th>Cantidad</th>
-      <th>Id empleado</th>
+      <th>Costo por elemento</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -17,7 +17,7 @@
         <td><%= inventario.id_inventario %></td>
         <td><%= inventario.Producto %></td>
         <td><%= inventario.Cantidad %></td>
-        <td><%= inventario.id_empleado %></td>
+        <td><%= inventario.costo_por_elemento %></td>
         <td><%= link_to 'Ver', inventario %></td>
         <td><%= link_to 'Editar', edit_inventario_path(inventario) %></td>
         <td><%= link_to 'Eliminar', inventario, method: :delete, data: { confirm: 'Estas seguro que desea Eliminar?' } %></td>

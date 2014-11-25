@@ -28,6 +28,11 @@ class ProveedorPaquetesController < ApplicationController
 
     respond_to do |format|
       if @proveedor_paquete.save
+        @paquete = Paquete.joins('INNER JOIN proveedor_paquetes ON paquetes.id_paquete = proveedor_paquetes.id_paquete').where('paquetes.id_paquete' => @proveedor_paquete.id_paquete)[0]
+        @proveedor = Proveedor.joins('INNER JOIN proveedor_paquetes ON proveedors.id_provedor = proveedor_paquetes.id_provedor').where('proveedors.id_provedor' => @proveedor_paquete.id_provedor)[0]
+        @paquete.Costo += @proveedor.costo
+        
+        @paquete.save
         format.html { redirect_to @proveedor_paquete, notice: 'Proveedor paquete was successfully created.' }
         format.json { render :show, status: :created, location: @proveedor_paquete }
       else
@@ -54,6 +59,11 @@ class ProveedorPaquetesController < ApplicationController
   # DELETE /proveedor_paquetes/1
   # DELETE /proveedor_paquetes/1.json
   def destroy
+    @paquete = Paquete.joins('INNER JOIN proveedor_paquetes ON paquetes.id_paquete = proveedor_paquetes.id_paquete').where('paquetes.id_paquete' => @proveedor_paquete.id_paquete)[0]
+    @proveedor = Proveedor.joins('INNER JOIN proveedor_paquetes ON proveedors.id_provedor = proveedor_paquetes.id_provedor').where('proveedors.id_provedor' => @proveedor_paquete.id_provedor)[0]
+    @paquete.Costo -= @proveedor.costo
+        
+    @paquete.save
     @proveedor_paquete.destroy
     respond_to do |format|
       format.html { redirect_to proveedor_paquetes_url, notice: 'Proveedor paquete was successfully destroyed.' }

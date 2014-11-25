@@ -1,8 +1,7 @@
 class WelcomeController < ApplicationController
   def index
-  	@empleado = Empleado.find(2)
-  	@nombre = @empleado.Nombre
-  	@puesto = @empleado.Puesto
+  	@nombre = Empleado.joins('INNER JOIN users ON users.email = empleados.email').where('empleados.email' => current_user.email)[0].Nombre
+  	
   end
 
 	def cliente
@@ -13,13 +12,10 @@ class WelcomeController < ApplicationController
 
 		if params[:commit] == "registrar"
 			@EmpleadoCliente = EmpleadoCliente.new
-			@cliente = Cliente.where('Nombre' => params[:Clientes])
-			@cliente.each do |cli|
-				@EmpleadoCliente.id_cliente = cli.id_cliente
-			end
-			@EmpleadoCliente.id_empleado = 3
-			@EmpleadoCliente.fecha = Date.current.to_s
-			@EmpleadoCliente.hora = String.try_convert(Time.current.to_s)[11..18]
+
+			@EmpleadoCliente.id_cliente = Cliente.where('Nombre' => params[:Clientes])[0].id_cliente
+			
+			@EmpleadoCliente.id_empleado = Empleado.joins('INNER JOIN users ON users.email = empleados.email').where('empleados.email' => current_user.email)[0].id_empleado
 
 			if @EmpleadoCliente.save
 				redirect_to fiesta_path
@@ -34,13 +30,10 @@ class WelcomeController < ApplicationController
 	def registrar
 		
 		@EmpleadoCliente = EmpleadoCliente.new
-		@cliente = Cliente.where('Nombre' => params[:Clientes])
-		@cliente.each do |cli|
-			@EmpleadoCliente.id_cliente = @cliente.id_cliente
-		end
-		@EmpleadoCliente.id_empleado = 1
-		@EmpleadoCliente.fecha = Date.current.to_s
-		@EmpleadoCliente.hora = String.try_convert(Time.current.to_s)[11..18]
+		@cliente = Cliente.where('Nombre' => params[:Clientes])[0]
+		@EmpleadoCliente.id_cliente = @cliente.id_cliente
+		
+		@EmpleadoCliente.id_empleado = Empleado.joins('INNER JOIN users ON users.email = empleados.email').where('empleados.email' => current_user.email)[0].id_empleado
 
 		if @EmpleadoCliente.save
 			redirect_to fiesta_path

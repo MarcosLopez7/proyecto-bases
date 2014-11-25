@@ -25,14 +25,14 @@ class ClientesController < ApplicationController
   # POST /clientes.json
   def create
       @i = 1
-      @clientes = Cliente.all
+      @clientes = Cliente.all.order(id_cliente: :asc)
       @clientes.each do |cliente|
 
-     if @i == cliente.id_cliente 
-       @i = @i + 1 
-    else
-       break 
-    end 
+        if @i == cliente.id_cliente 
+          @i = @i + 1 
+        else
+          break 
+        end 
 
    end 
     @cliente = Cliente.new(cliente_params)

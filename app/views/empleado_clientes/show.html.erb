@@ -11,14 +11,10 @@
 </p>
 
 <p>
-  <strong>Fecha:</strong>
-  <%= @empleado_cliente.fecha %>
+  <strong>Fecha y hora:</strong>
+  <%= @empleado_cliente.created_at %>
 </p>
 
-<p>
-  <strong>Hora:</strong>
-  <%= @empleado_cliente.hora %>
-</p>
 
-<%= link_to 'Edit', edit_empleado_cliente_path(@empleado_cliente) %> |
-<%= link_to 'Back', empleado_clientes_path %>
+<%= link_to 'Editar', edit_empleado_cliente_path(@empleado_cliente) %> |
+<%= link_to 'regresar', empleado_clientes_path %>

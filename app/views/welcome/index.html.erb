@@ -1,13 +1,43 @@
-<h1>Bienvenido <%= @nombre%></h1>
-<table>
-	<tr>
-		<th><%= link_to 'Iniciar sesión con cliente', welcome_cliente_path%></th>
-		<th><%= link_to 'Perfil del empleado', @empleado%></th>
-		<% if(@puesto == "Administrador")%>
-			<th><%= link_to 'Agregar empleado', new_empleado_path%></th>
-			<th><%= link_to 'Agregar proveedor', new_proveedor_path %></th>
-			<th><%= link_to 'Agregar paquete', new_paquete_path%></th>
-		<% end %>
-	</tr>
+<html>
+  <head>
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+      google.load("visualization", "1.1", {packages:["bar"]});
+      google.setOnLoadCallback(drawChart);
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['meses', 'Ventas', 'Visitas'],
+          ['Enero', 100, 40],
+          ['Febrero', 117, 46],
+          ['Marzo', 66, 112],
+          ['Abril', 103, 54],
+          ['Mayo', 103, 54],
+          ['Junio', 130, 54],
+          ['Julio', 130, 40],
+          ['Agosto', 30, 54],
+          ['Septiembre', 100, 54],
+          ['Octubre', 100, 40],
+          ['Noviembre', 10, 54],
+          ['Dic', 130, 40]
 
-</table>
+        ]);
+
+        var options = {
+          chart: {
+            title: 'Ventas',
+            
+          }
+        };
+
+        var chart = new google.charts.Bar(document.getElementById('columnchart_material'));
+
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+  <body>
+  <h1>Bienvenido <%= @nombre%></h1>
+    <div id="columnchart_material" style="width: 900px; height: 500px;"></div>
+
+  </body>
+</html>

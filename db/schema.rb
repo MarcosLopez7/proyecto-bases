@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141114225012) do
+ActiveRecord::Schema.define(version: 20141124040332) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,8 +29,6 @@ ActiveRecord::Schema.define(version: 20141114225012) do
   create_table "empleado_clientes", force: true do |t|
     t.integer  "id_empleado"
     t.integer  "id_cliente"
-    t.date     "fecha"
-    t.time     "hora"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -43,32 +41,38 @@ ActiveRecord::Schema.define(version: 20141114225012) do
     t.string   "Puesto"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "email"
   end
 
   create_table "fiesta", force: true do |t|
     t.integer  "id_fiesta"
     t.date     "fecha"
     t.integer  "id_cliente"
-    t.integer  "id_empleado"
     t.integer  "id_paquete"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.decimal  "costo"
   end
 
   create_table "inventarios", force: true do |t|
     t.integer  "id_inventario"
     t.string   "Producto"
     t.integer  "Cantidad"
-    t.integer  "id_empleado"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "costo_por_elemento"
   end
 
-  add_index "inventarios", ["id_empleado"], name: "index_inventarios_on_id_empleado", using: :btree
+  create_table "paquete_inventarios", force: true do |t|
+    t.integer  "id_inventario"
+    t.integer  "id_paquete"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "cantidad"
+  end
 
   create_table "paquetes", force: true do |t|
     t.integer  "id_paquete"
-    t.integer  "Numero_paquete"
     t.integer  "Costo"
     t.text     "Descripcion"
     t.datetime "created_at"
@@ -88,11 +92,19 @@ ActiveRecord::Schema.define(version: 20141114225012) do
     t.string   "Direccion"
     t.string   "Telefono"
     t.string   "Producto"
-    t.integer  "id_empleado"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "costo"
+  end
+
+  create_table "users", force: true do |t|
+    t.string   "email",            null: false
+    t.string   "crypted_password", null: false
+    t.string   "salt",             null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "proveedors", ["id_empleado"], name: "index_proveedors_on_id_empleado", using: :btree
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
 
 end

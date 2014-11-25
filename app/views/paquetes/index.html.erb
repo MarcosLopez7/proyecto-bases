@@ -1,9 +1,8 @@
-<h1>Listing paquetes</h1>
+<h1>Lista Paquete</h1>
 
 <table>
   <thead>
     <tr>
-      <th>Id paquete</th>
       <th>Numero paquete</th>
       <th>Costo</th>
       <th>Descripcion</th>
@@ -15,12 +14,11 @@
     <% @paquetes.each do |paquete| %>
       <tr>
         <td><%= paquete.id_paquete %></td>
-        <td><%= paquete.Numero_paquete %></td>
         <td><%= paquete.Costo %></td>
         <td><%= paquete.Descripcion %></td>
-        <td><%= link_to 'Show', paquete %></td>
-        <td><%= link_to 'Edit', edit_paquete_path(paquete) %></td>
-        <td><%= link_to 'Destroy', paquete, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Ver', paquete %></td>
+        <td><%= link_to 'Editar', edit_paquete_path(paquete) %></td>
+        <td><%= link_to 'Eliminar', paquete, method: :delete, data: { confirm: 'Estas seguro que quieres eliminar?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -28,4 +26,6 @@
 
 <br>
 
-<%= link_to 'New Paquete', new_paquete_path %>
+<%= link_to 'Nuevo Paquete', new_paquete_path %>
+<%= link_to 'Agregar un inventario al paquete', paquete_inventarios_path %>
+<%= link_to 'Agregar un proveedor al paquete', proveedor_paquetes_path %>

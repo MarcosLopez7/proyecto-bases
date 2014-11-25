@@ -1,0 +1,29 @@
+<h1>Lista de Paquetes</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Producto</th>
+      <th>Numero de paquete</th>
+      <th>Cantidad</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @paquete_inventarios.each do |paquete_inventario| %>
+      <tr>
+        <td><%= paquete_inventario.id_inventario %></td>
+        <td><%= paquete_inventario.id_paquete %></td>
+        <td><%= paquete_inventario.cantidad %></td>
+        <td><%= link_to 'Ver', paquete_inventario %></td>
+        <td><%= link_to 'Editar', edit_paquete_inventario_path(paquete_inventario) %></td>
+        <td><%= link_to 'Eliminar', paquete_inventario, method: :delete, data: { confirm: 'Estas Seguro que quieres eliminar?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Nuevo Paquete en inventario', new_paquete_inventario_path %>
